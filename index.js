@@ -1,14 +1,35 @@
 function isPalindrome(word) {
   // Write your algorithm here
+    // Convert the string to lowercase and remove non-alphanumeric characters
+    word = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+    
+    // Check if the string is empty or has only one character
+    if (word.length <= 1) {
+        return true; // It's a palindrome
+    }
+    
+    // Compare characters from the beginning and end of the string
+    let start = 0;
+    let end = word.length - 1;
+    while (start < end) {
+        if (word[start] !== word[end]) {
+            return false; // It's not a palindrome
+        }
+        start++;
+        end--;
+    }
+    
+    return true; // It's a palindrome
 }
+
 
 /* 
   Add your pseudocode here
-*/
+*/ 
 
 /*
   Add written explanation of your solution here
-*/
+*/ // remove all non aphalbetical items and start confirm that all index leters from first with last is the same until we come to the middle
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
